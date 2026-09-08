@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>給你的話</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #fffcf2 0%, #f2e8d5 100%);
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    padding: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .confetti {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.55;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(95, 115, 85, 0.15);
+    border: 1px solid #eadfc9;
+  }
+
+  .heart {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  .message {
+    font-size: 22px;
+    line-height: 1.9;
+    color: #5f7355;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: #c9a66b;
+    margin: 28px auto;
+    border-radius: 999px;
+  }
+
+  .signature {
+    font-size: 14px;
+    color: #a67c3d;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="heart">💌</div>
+    <p class="message">儘管世界破破爛爛，<br />仍有我為你縫縫補補❤️</p>
+    <div class="divider"></div>
+    <p class="signature">— 生日快樂 —</p>
+  </div>
+
+  <script>
+    // 簡單灑落幾個彩色圓點裝飾背景
+    const colors = ["#C9A66B", "#9CAF88", "#F2E8D5", "#5F7355"];
+    for (let i = 0; i < 24; i++) {
+      const dot = document.createElement("div");
+      dot.className = "confetti";
+      const size = Math.random() * 10 + 6;
+      dot.style.width = size + "px";
+      dot.style.height = size + "px";
+      dot.style.left = Math.random() * 100 + "vw";
+      dot.style.top = Math.random() * 100 + "vh";
+      dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(dot);
+    }
+  </script>
+
+</body>
+</html>
